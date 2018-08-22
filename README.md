@@ -57,5 +57,5 @@ public class CorpWechatConfig {
 ```
 
 ### 4、showcase
-[](./showcase/1.png)
+![](showcase/1.png)
 
