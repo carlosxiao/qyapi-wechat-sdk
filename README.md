@@ -4,9 +4,9 @@
 ### 1、Add dependency
 ``` java
 <dependency>
-    <groupId>com.dhph.pub</groupId>
+    <groupId>com.cc.pub</groupId>
     <artifactId>qyapi-wechat-sdk</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.1-SNAPSHOT</version>
 </dependency>
 
 ```
