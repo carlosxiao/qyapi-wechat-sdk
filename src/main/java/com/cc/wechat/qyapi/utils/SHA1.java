@@ -1,4 +1,4 @@
-package com.cc.wechat.qyapi;
+package com.cc.wechat.qyapi.utils;
 
 import java.security.MessageDigest;
 

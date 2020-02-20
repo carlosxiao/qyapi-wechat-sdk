@@ -1,5 +1,6 @@
-package com.cc.wechat.qyapi;
+package com.cc.wechat.qyapi.utils;
 
+import com.cc.wechat.qyapi.api.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

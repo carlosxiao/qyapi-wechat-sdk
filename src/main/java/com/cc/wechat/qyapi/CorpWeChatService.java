@@ -1,5 +1,8 @@
 package com.cc.wechat.qyapi;
 
+import com.cc.wechat.qyapi.api.Constants;
+import com.cc.wechat.qyapi.requestBean.ScheduleBean;
+import com.cc.wechat.qyapi.utils.HttpKit;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
@@ -23,6 +26,8 @@ public class CorpWeChatService {
     private String agentId;
 
     static final int MAX_USER_MSG_SIZE = 1000;
+
+    static final int MAX_USER_JOIN_SIZE = 2000;
 
     private static Logger logger = LoggerFactory.getLogger(CorpWeChatService.class);
 
@@ -102,6 +107,35 @@ public class CorpWeChatService {
             JSONObject jsonObject = JSONObject.fromObject(paramMap);
             String result = HttpKit.post(Constants.SEND_APP_MSG + token, jsonObject.toString());
             logger.debug("send result: {}", result);
+        } catch (Exception e) {
+            logger.error("获取access token失败", e);
+        }
+    }
+
+
+    /**
+     * 创建日程
+     * @param scheduleBean
+     */
+    public void addSchedule(ScheduleBean scheduleBean) {
+        try {
+            String token = HttpKit.getAccessToken(corpId, secret);
+            Map<String, Object> paramMap = new HashMap<>(7);
+
+            if (scheduleBean.getAttendees() == null || scheduleBean.getAttendees().size() == 0) {
+                logger.error("参与人不能为空");
+                return;
+            }
+            if (scheduleBean.getAttendees().size() > MAX_USER_JOIN_SIZE) {
+                logger.error("参与人数量最多2000");
+                return;
+            }
+            paramMap.put("schedule", scheduleBean);
+            JSONObject jsonObject = JSONObject.fromObject(paramMap);
+            String result = HttpKit.post(Constants.CREATE_SCHEDULE + token, jsonObject.toString());
+            logger.debug("send result: {}", result);
+            System.out.println("send body: {}" + jsonObject.toString());
+            System.out.println("send result: {}" + result);
         } catch (Exception e) {
             logger.error("获取access token失败", e);
         }
