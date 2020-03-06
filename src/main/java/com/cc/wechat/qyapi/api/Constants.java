@@ -1,12 +1,9 @@
-package com.cc.wechat.qyapi;
+package com.cc.wechat.qyapi.api;
 
 /**
  * Created by carlosxiao
  */
 public class Constants {
-
-    public static final String access_token = "yq70xQ-764d9igkhK5emLhhawOm5O3lzxoGVyxrWeNLIMFOvw1EADDl0GA-cncLGMixOZC3fklAah4chJLsWb_aQAVdPpD9nCOrO_evNg3tgNXsBLgLCdy7wl2WR0zHjRpXoHbol4JeFaLrFD73fenWxmekZKQG28jH94N7V8uwht4ip9T6zZCvfPpdN8GmkueBHL-grNykjzQsytEyKWuTYah2eLQLTDUjMsUt4TcGCcPRFb_JfXfUCSsSHrFS_f2HDg5zHbB_ga6hNh4SrTOF3mmjgLv85wYNHXfjF_bOJ8twW2KTgaNISw93KFI-0";
-    public static final String jsapi_ticket = "JST02b10c3470498439";
 
     // 默认字符集
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -69,4 +66,9 @@ public class Constants {
      * 发送应用消息
      */
     public static final String SEND_APP_MSG = "https://qyapi.weixin.qq.com/cgi-bin/message/send?access_token=";
+
+    /**
+     * 创建日程
+     */
+    public static final String CREATE_SCHEDULE = "https://qyapi.weixin.qq.com/cgi-bin/oa/schedule/add?access_token=";
 }

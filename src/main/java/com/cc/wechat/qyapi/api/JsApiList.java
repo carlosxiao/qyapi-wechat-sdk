@@ -1,4 +1,4 @@
-package com.cc.wechat.qyapi;
+package com.cc.wechat.qyapi.api;
 
 import java.util.HashMap;
 import java.util.Map;
